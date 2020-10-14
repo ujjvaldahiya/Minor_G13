@@ -28,12 +28,13 @@
               <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
               <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
               <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+              <a class="nav-item nav-link" href="{% url 'bmi-home' %}">BMI</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if user.is_authenticated %}
                 <div class="dropdown">
-                  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" style="color: #337ab7;">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                     {{ user.username }}
                   </button>
                   <div class="dropdown-menu">
