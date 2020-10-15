@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'crispy_forms',
     'blog.apps.BlogConfig',
-    'bmi.apps.BmiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -140,4 +139,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ujjvaldahiya786@gmail.com'
-EMAIL_HOST_PASSWORD =''
+EMAIL_HOST_PASSWORD ='ejusbaujbkhcaofm'
