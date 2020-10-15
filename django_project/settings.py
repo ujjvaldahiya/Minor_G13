@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'bmi',
     'users.apps.UsersConfig',
     'crispy_forms',
     'blog.apps.BlogConfig',
