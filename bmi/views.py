@@ -56,10 +56,10 @@ def home(request):
 		
 		plot = figure(x_range = dates, plot_height = 600, plot_width = 600, title = "BMI Statistics", toolbar_location = "right", tools="pan, wheel_zoom, box_zoom, reset, hover, tap, crosshair")
 		plot.title.text_font_size = "20pt"
-		plot.xaxis.major_label_text_font_size = "14pt"
+		plot.xaxis.major_label_text_font_size = "10pt"
 
 		plot.step(dates, bmis, line_width = 2)
-		plot.legend.label_text_font_size = "14pt"
+		#plot.legend.label_text_font_size = "14pt"
 
 		plot.xaxis.major_label_orientation = pi/4
 		script, div = components(plot)
