@@ -48,6 +48,7 @@ urlpatterns = [
          name='password_reset_complete'),
     path('change-password/',user_views.change_password, name="change_password"),
     path('', include('blog.urls')),
+    path('bmi/', include('bmi.urls')),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
