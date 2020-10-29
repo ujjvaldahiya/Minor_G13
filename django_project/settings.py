@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bmi',
+    'recipes',
+    'exercises',
     'users.apps.UsersConfig',
     'crispy_forms',
     'blog.apps.BlogConfig',
