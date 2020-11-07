@@ -207,7 +207,21 @@
 				</p>
 			</div>
 	  </div>
-	  <div class="tab-pane container fade" id="menu1">...</div>
+	  <div class="tab-pane container fade" id="menu1">
+	  	<form method="post">
+			{% csrf_token %}
+			<div>
+				<label for="">Weight: </label>
+				<input type="text" name="weight-imperial" class="form-control" required placeholder="lbs" >
+			</div>
+			<div>
+				<label for="">Height: </label>
+				<input type="text" name="weight-imperial" class="form-control" required placeholder="lbs" >
+			</div>
+			<br>
+			<button type="submit" class="btn btn-primary" action="{% url 'bmi-home' %}">Calculate</button>
+		</form>
+	  </div>
 	</div>
 </div>
 
