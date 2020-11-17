@@ -3,16 +3,16 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+    <a class="nav-link" data-toggle="tab" href="#home">Tips</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#menu1">Search</a>
+    <a class="nav-link active" data-toggle="tab" href="#menu1">Search</a>
   </li>
 </ul>
 <div class="media content-section">
 <!-- Tab panes -->
 	<div class="tab-content">
-	  <div class="tab-pane container active" id="home">
+	  <div class="tab-pane container fade" id="home">
 	  	<div>
 			<h1>Worried about what to eat?</h1>
 				<p class="text-muted">Don't worry, we have got you covered :)</p>
@@ -207,20 +207,15 @@
 				</p>
 			</div>
 	  </div>
-	  <div class="tab-pane container fade" id="menu1">
-	  	<form method="post">
-			{% csrf_token %}
-			<div>
-				<label for="">Weight: </label>
-				<input type="text" name="weight-imperial" class="form-control" required placeholder="lbs" >
-			</div>
-			<div>
-				<label for="">Height: </label>
-				<input type="text" name="weight-imperial" class="form-control" required placeholder="lbs" >
-			</div>
-			<br>
-			<button type="submit" class="btn btn-primary" action="{% url 'bmi-home' %}">Calculate</button>
+	  <div class="tab-pane container active" id="menu1">
+	  	<form action="" method="post" enctype="multipart/form-data">
+	  		{% csrf_token %}
+			<input type="file" multiple name="img[]"/>
+			<input type="submit">
 		</form>
+		<?php
+		print_r($_FILES['img']['name']);
+		?>
 	  </div>
 	</div>
 </div>

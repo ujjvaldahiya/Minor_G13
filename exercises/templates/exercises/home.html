@@ -3,19 +3,19 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
 	<li class="nav-item">
-		<a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+		<a class="nav-link" data-toggle="tab" href="#home">Tips</a>
 	</li>
 	<li class="nav-item">
 	    <a class="nav-link" data-toggle="tab" href="#menu1">Plans</a>
 	</li>
 	<li class="nav-item">
-	    <a class="nav-link" data-toggle="tab" href="#menu2">Search</a>
+	    <a class="nav-link active" data-toggle="tab" href="#menu2">Search</a>
 	</li>
 </ul>
 <div class="media content-section">
 <!-- Tab panes -->
 	<div class="tab-content">
-	  <div class="tab-pane container active" id="home">
+	  <div class="tab-pane container fade" id="home">
 	  	<div>
 			<h1>Don't have the perfect workout plan?</h1>
 			<p class="text-muted">Don't worry, we'll help you :)</p>
@@ -68,22 +68,141 @@
 			</p>
 		</div>
 	  </div>
-	  <div class="tab-pane container fade" id="menu1">...</div>
-	  <div class="tab-pane container fade" id="menu2">
-	  	<form method="post">
-			{% csrf_token %}
-			<div>
-				<label for="">Weight: </label>
-				<input type="text" name="weight-imperial" class="form-control" required placeholder="lbs" >
-			</div>
-			<div>
-				<label for="">Height: </label>
-				<input type="text" name="weight-imperial" class="form-control" required placeholder="lbs" >
-			</div>
-			<br>
-			<button type="submit" class="btn btn-primary" action="{% url 'bmi-home' %}">Calculate</button>
-		</form>
+<!--#########################################################################-->	  
+	  <div class="tab-pane container fade" id="menu1">
+	  	<!--#########################################################################-->
+	  	<article class="media content-section my-3">
+		  	<ul class="nav nav-pills">
+			  <li class="nav-item">
+			    <a class="nav-link active" data-toggle="pill" href="#sechome1">Beginner</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="pill" href="#secmenu1">Intermediate</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="pill" href="#secmenu2">Advanced</a>
+			  </li>
+			</ul>
+		</article>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+		  <div class="tab-pane container active" id="sechome1">...</div>
+		  <div class="tab-pane container fade" id="secmenu1">...</div>
+		  <div class="tab-pane container fade" id="secmenu2">...</div>
+		</div>
+		<!--#########################################################################-->
 	  </div>
+<!--#########################################################################-->
+	  <div class="tab-pane container active" id="menu2">
+	  	<!--#########################################################################-->
+	  	<article class="media content-section my-3">
+		  	<ul class="nav nav-pills">
+			  <li class="nav-item">
+			    <a class="nav-link active" data-toggle="pill" href="#sechome">Search by Name</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="pill" href="#secmenu">Search by Equipment</a>
+			  </li>
+			</ul>
+		</article>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+		  <div class="tab-pane container active" id="sechome">
+			  <form method="post">
+				{% csrf_token %}
+				<div class="my-3">
+					<label for="">Enter Name: </label>
+					<input type="text" name="exercise-name" class="form-control" required placeholder="" >
+				</div>
+				<button type="submit" class="btn btn-primary my-3" action="#">Search</button>
+			</form>
+		  </div>
+		  <div class="tab-pane container fade" id="secmenu">
+		  	<form method="post">
+				{% csrf_token %}
+				<div>
+					<label for="">Enter Equipment: </label>
+					<input type="text" name="exercise-equipment" class="form-control" required placeholder="Names should be comma seperated" >
+				</div>
+				<p class="my-3">Select Difficulty:</p>
+				<div class="form-check">
+					<input class="form-check-input" checked="checked" name="beginner" value="on" type="checkbox">
+					<label class="form-check-label">Beginner</label>
+				</div>
+				<div class="form-check my-3">
+					<input class="form-check-input" checked="checked" name="intermediate" value="on" type="checkbox">
+					<label class="form-check-label">Intermediate</label>
+				</div>
+				<div class="form-check my-3">
+					<input class="form-check-input" checked="checked" name="advanced" value="on" type="checkbox">
+					<label class="form-check-label">Advanced</label>
+				</div>
+				<button type="submit" class="btn btn-primary my-3">Search</button>
+			</form>
+		  </div>
+		  {% if case == 1 %}
+			<div class="media content-section">
+					<div class="media-body">
+					<h1 class="my-3">RESULTS</h1>
+					</div>
+			</div>
+			    {%for exercises in results%}
+					<article class="media content-section">
+					    <div class="media-body"> 
+					        <div class="article-metadata">
+					        	<h2>{{ exercises.Exercise_Name }}</h2>
+					        </div>
+					        	<p class="mr-2">{{ exercises.Body_Part }}</p>
+					          	<small class="text-muted">Difficulty - {{ exercises.Difficulty }}</small>
+					        <img class="rounded my-3" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
+					        <p class="article-content">{{ exercises.Procedure }}</p>
+					    </div>
+					</article>
+				{%endfor%}
+			{% elif case == 2 %}
+				<div class="media content-section">
+					<div class="media-body">
+					<h1 class="my-3">RESULTS</h1>
+					</div>
+			    </div>
+				{%for exercises in results%}
+				<article class="media content-section">
+				    <div class="media-body"> 
+				        <div class="article-metadata">
+				        	<h2>{{ exercises.Exercise_Name }}</h2>
+				        </div>
+				        	<p class="mr-2">{{ exercises.Body_Part }}</p>
+				          	<small class="text-muted">Difficulty - {{ exercises.Difficulty }}</small>
+				        <img class="rounded my-3" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
+				        <p class="article-content">{{ exercises.Procedure }}</p>
+				    </div>
+				</article>
+				{%endfor%}
+				<div class="media content-section">
+					<div class="media-body">
+					<h1 class="my-3">OUR RECOMMENDATIONS</h1>
+					</div>
+				</div>
+				{%for exercises in recommendations%}
+				<article class="media content-section">
+				    <div class="media-body"> 
+				        <div class="article-metadata">
+				        	<h2>{{ exercises.Exercise_Name }}</h2>
+				        </div>
+				        	<p class="mr-2">{{ exercises.Body_Part }}</p>
+				          	<small class="text-muted">Difficulty - {{ exercises.Difficulty }}</small>
+				        <img class="rounded my-3" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
+				        <p class="article-content">{{ exercises.Procedure }}</p>
+				    </div>
+				</article>
+			{%endfor%}
+			{% endif %}
+		</div>
+		<!--#########################################################################-->
+	  </div>
+<!--#########################################################################-->
 	</div>
 </div>
 {% endblock content %}
