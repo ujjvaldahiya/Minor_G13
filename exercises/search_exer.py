@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Nov 15 18:49:40 2020
-
-@author: Jagseer Singh
-"""
 import pandas as pd
 import numpy as np
 from fuzzywuzzy import process
