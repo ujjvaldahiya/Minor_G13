@@ -8,7 +8,7 @@ Created on Tue Nov 17 16:33:16 2020
 import pandas as pd
 import numpy as np
 from fuzzywuzzy import process
-from RecommendationSystemExercise import find_recommendations
+from .RecommendationSystemExercise import find_recommendations
 
 def search_exer_byname(s):
     df= pd.read_excel('datasheet_exer.xlsx')
