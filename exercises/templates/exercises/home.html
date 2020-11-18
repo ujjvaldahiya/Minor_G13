@@ -12,7 +12,7 @@
 	    <a class="nav-link active" data-toggle="tab" href="#menu2">Search</a>
 	</li>
 </ul>
-<div class="media content-section">
+<div class="media content-section" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 <!-- Tab panes -->
 	<div class="tab-content">
 	  <div class="tab-pane container fade" id="home">
@@ -154,10 +154,10 @@
 					        <div class="article-metadata">
 					        	<h2>{{ exercises.Exercise_Name }}</h2>
 					        </div>
-					        	<p class="mr-2">{{ exercises.Body_Part }}</p>
-					          	<small class="text-muted">Difficulty - {{ exercises.Difficulty }}</small>
 					        <img class="rounded my-3" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
-					        <p class="article-content">{{ exercises.Procedure }}</p>
+					        <p class="mr-2"><b>Body Parts -</b> {{ exercises.Body_Part }}</p>
+					        <p class="mr-2"><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
+					        <p class="article-content"><b>Procedure -</b> {{ exercises.Procedure }}</p>
 					    </div>
 					</article>
 				{%endfor%}
@@ -171,13 +171,13 @@
 				<article class="media content-section">
 				    <div class="media-body"> 
 				        <div class="article-metadata">
-				        	<h2>{{ exercises.Exercise_Name }}</h2>
+			        	<h2>{{ exercises.Exercise_Name }}</h2>
 				        </div>
-				        	<p class="mr-2">{{ exercises.Body_Part }}</p>
-				          	<small class="text-muted">Difficulty - {{ exercises.Difficulty }}</small>
 				        <img class="rounded my-3" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
-				        <p class="article-content">{{ exercises.Procedure }}</p>
-				    </div>
+				        <p class="mr-2"><b>Body Parts -</b> {{ exercises.Body_Part }}</p>
+				        <p class="mr-2"><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
+					    <p class="article-content"><b>Procedure -</b> {{ exercises.Procedure }}</p>
+					</div>
 				</article>
 				{%endfor%}
 				<div class="media content-section">
@@ -191,10 +191,10 @@
 				        <div class="article-metadata">
 				        	<h2>{{ exercises.Exercise_Name }}</h2>
 				        </div>
-				        	<p class="mr-2">{{ exercises.Body_Part }}</p>
-				          	<small class="text-muted">Difficulty - {{ exercises.Difficulty }}</small>
 				        <img class="rounded my-3" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
-				        <p class="article-content">{{ exercises.Procedure }}</p>
+				        <p class="mr-2"><b>Body Parts -</b> {{ exercises.Body_Part }}</p>
+				        <p class="mr-2"><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
+				        <p class="article-content"><b>Procedure -</b> {{ exercises.Procedure }}</p>
 				    </div>
 				</article>
 			{%endfor%}

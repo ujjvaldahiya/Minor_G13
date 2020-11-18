@@ -18,7 +18,7 @@
 </head>
 <body>
     <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background-color: #006994;">
         <div class="container">
           <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Exerprise</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,7 +73,7 @@
           {% block content %}{% endblock %}
         </div>
           <div class="col-md-4">
-            <div class="content-section" style="position: fixed; padding-left: 35px; padding-right: 35px; padding-top: 15px; padding-bottom: 15px;">
+            <div class="content-section" style="position: fixed; padding-left: 35px; padding-right: 35px; padding-top: 15px; padding-bottom: 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
               <h3>Health Tips</h3>
               <p class='text-muted'>Benefits of Exercise & Healthy Eating:
                 <ul class="list-group">
