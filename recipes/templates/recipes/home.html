@@ -1,20 +1,28 @@
 {% extends "bmi/base.html" %}
 {% block content %}
 <!-- Nav tabs -->
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#home">Tips</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#menu1">Search</a>
-  </li>
-</ul>
-<div class="media content-section" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-<!-- Tab panes -->
-	<div class="tab-content">
-	  <div class="tab-pane container fade" id="home">
-	  	<div>
-			<h1>Worried about what to eat?</h1>
+<div class="p-4 bg-white rounded shadow mb-5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <!-- Rounded tabs -->
+    <ul id="myTab" role="tablist" class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
+      <li class="nav-item flex-sm-fill">
+        <a id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" class="nav-link border-0 text-uppercase font-weight-bold active">Search</a>
+      </li>
+      <li class="nav-item flex-sm-fill">
+        <a id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">Recipes</a>
+      </li>
+      <li class="nav-item flex-sm-fill">
+        <a id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">Tips</a>
+      </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div id="home" role="tabpanel" aria-labelledby="home-tab" class="tab-pane fade px-2 py-4 show active">
+        
+      </div>
+      <div id="profile" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade px-2 py-4">
+        
+      </div>
+      <div id="contact" role="tabpanel" aria-labelledby="contact-tab" class="tab-pane fade px-2 py-4">
+        <h1>Worried about what to eat?</h1>
 				<p class="text-muted">Don't worry, we have got you covered :)</p>
 				<p class="hr-2">
 					<b>If your diet plan isn’t what it needs to be, your workout routine will fail completely no matter how perfect it is.</b>
@@ -205,19 +213,8 @@
 				<p class="hr-2">
 		            Happy Eating :)
 				</p>
-			</div>
-	  </div>
-	  <div class="tab-pane container active" id="menu1">
-	  	<form action="" method="post" enctype="multipart/form-data">
-	  		{% csrf_token %}
-			<input type="file" multiple name="img[]"/>
-			<input type="submit">
-		</form>
-		<?php
-		print_r($_FILES['img']['name']);
-		?>
-	  </div>
-	</div>
+      	</div>
+    </div>
+    <!-- End rounded tabs -->
 </div>
-
 {% endblock content %}

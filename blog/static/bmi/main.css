@@ -130,3 +130,16 @@ a.article-title:hover {
 	from {opacity: 0;}
 	to {opacity: 1;}
 }
+
+@media (min-width: 576px) {
+  .rounded-nav {
+    border-radius: 50rem !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .rounded-nav .nav-link {
+    border-radius: 50rem !important;
+  }
+}
+
