@@ -22,13 +22,13 @@
             {% if liked %}
             <div class="border-top pt-1">
               <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm"> 
-                {{ total_likes }} 
+                Like - {{ total_likes }} 
               </button>
             </div>
             {% else %}
             <div class="border-top pt-1">
               <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm"> 
-                {{ total_likes }} 
+                Like - {{ total_likes }} 
               </button>
             </div>
             {% endif %}
