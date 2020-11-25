@@ -36,7 +36,7 @@
 					<label for="">Enter Name: </label>
 					<input type="text" name="exercise-name" class="form-control" required placeholder="" >
 				</div>
-				<button type="submit" class="btn btn-primary my-3" action="#">Search</button>
+				<button type="submit" class="btn btn-outline-primary my-3" action="#">Search</button>
 			</form>
 		  </div>
 		  <div class="tab-pane container fade" id="secmenu">
@@ -59,7 +59,7 @@
 					<input class="form-check-input" checked="checked" name="advanced" value="on" type="checkbox">
 					<label class="form-check-label">Advanced</label>
 				</div>
-				<button type="submit" class="btn btn-primary my-3">Search</button>
+				<button type="submit" class="btn btn-outline-primary my-3">Search</button>
 			</form>
 		  </div>
 		  {% if case == 1 %}
@@ -71,13 +71,21 @@
 			    {%for exercises in results%}
 					<article class="media content-section">
 					    <div class="media-body"> 
-					        <div class="article-metadata">
+					    	<div class="article-metadata">
 					        	<h2>{{ exercises.Exercise_Name }}</h2>
 					        </div>
-					        <img class="rounded my-3" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
-					        <p class="mr-2"><b>Body Parts -</b> {{ exercises.Body_Part }}</p>
-					        <p class="mr-2"><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
-					        <p class="article-content"><b>Procedure -</b> {{ exercises.Procedure }}</p>
+					        <div class="article-metadata">
+					        	<p class="my-3"><b>Body Parts -</b> {{ exercises.Body_Part }}<span class="tab"></span><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
+						        <p class="my-3"></p>
+					        </div>
+					        <div class="row">
+						    	<div class="col-md-6">
+						    		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
+						    	</div>
+						        <div class="col-md-6">
+						        	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ exercises.Procedure }}</p>
+						        </div>
+					        </div>
 					    </div>
 					</article>
 				{%endfor%}
@@ -90,14 +98,22 @@
 				{%for exercises in results%}
 				<article class="media content-section">
 				    <div class="media-body"> 
-				        <div class="article-metadata">
-			        	<h2>{{ exercises.Exercise_Name }}</h2>
+				    	<div class="article-metadata">
+				        	<h2>{{ exercises.Exercise_Name }}</h2>
 				        </div>
-				        <img class="rounded my-3" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
-				        <p class="mr-2"><b>Body Parts -</b> {{ exercises.Body_Part }}</p>
-				        <p class="mr-2"><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
-					    <p class="article-content"><b>Procedure -</b> {{ exercises.Procedure }}</p>
-					</div>
+				        <div class="article-metadata">
+					       	<p class="my-3"><b>Body Parts -</b> {{ exercises.Body_Part }}<span class="tab"></span><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
+					        <p class="my-3"></p>
+				        </div>
+				        <div class="row">
+					    	<div class="col-md-6">
+					    		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
+					    	</div>
+						    <div class="col-md-6">
+					        	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ exercises.Procedure }}</p>
+					        </div>
+				        </div>
+				    </div>
 				</article>
 				{%endfor%}
 				<div class="media content-section">
@@ -108,14 +124,22 @@
 				{%for exercises in recommendations%}
 				<article class="media content-section">
 				    <div class="media-body"> 
-				        <div class="article-metadata">
+				    	<div class="article-metadata">
 				        	<h2>{{ exercises.Exercise_Name }}</h2>
 				        </div>
-				        <img class="rounded my-3" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
-				        <p class="mr-2"><b>Body Parts -</b> {{ exercises.Body_Part }}</p>
-				        <p class="mr-2"><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
-				        <p class="article-content"><b>Procedure -</b> {{ exercises.Procedure }}</p>
-				    </div>
+				        <div class="article-metadata">
+				        	<p class="my-3"><b>Body Parts -</b> {{ exercises.Body_Part }}<span class="tab"></span><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
+					        <p class="my-3"></p>
+				        </div>
+					    <div class="row">
+						   	<div class="col-md-6">
+						   		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
+						   	</div>
+						    <div class="col-md-6">
+						       	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ exercises.Procedure }}</p>
+					        </div>
+				        </div>
+					</div>
 				</article>
 			{%endfor%}
 			{% endif %}
