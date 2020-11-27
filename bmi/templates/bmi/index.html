@@ -6,8 +6,10 @@
 			<!--##########Col1##########-->
 			<div class="col-md-6 col-sm-12 col-xs-12">
 				<div class="tab-bmi">
-					<h1>BMI Calculator</h1>
-					<div>
+					<div class="article-metadata">
+						<h1>BMI Calculator</h1>
+					</div>
+					<div style="padding-top: 5px;">
 						<button class="btn btn-default" onclick="openUnit(event, 'metric')">Metric</button>
 						<button class="btn btn-default" onclick="openUnit(event, 'imperial')">Imperial</button>
 					</div>
@@ -71,25 +73,27 @@
 			</div>
 			<!--##########Col2##########-->
 			{% if bmi %}
-			<div class="col-md-6 col-sm-12 col-xs-12" style="padding-left: 20px;">
-				<h1>Result</h1>	
-				<p>Your BMI = {{ bmi }} kg/m² | {{ state }}</p>
-				<div class="progress">
-					<div class="progress-bar bg-danger" style="width: 25%">
-						Underweight (16-18)
+				<div class="col-md-6 col-sm-12 col-xs-12" style="padding-left: 20px;">
+					<div class="article-metadata">
+						<h1>Result</h1>
 					</div>
-					<div class="progress-bar bg-success" style="width: 25%">
-						Normal (18-25)
-					</div>
-					<div class="progress-bar bg-warning" style="width: 25%">
-						Overweight (25-30)
-					</div>
-					<div class="progress-bar bg-danger" style="width: 25%">
-						Obese (30+)
+					<p style="padding-top: 5px;">Your BMI = {{ bmi }} kg/m² | {{ state }}</p>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 25%">
+							Underweight (16-18)
+						</div>
+						<div class="progress-bar bg-success" style="width: 25%">
+							Normal (18-25)
+						</div>
+						<div class="progress-bar bg-warning" style="width: 25%">
+							Overweight (25-30)
+						</div>
+						<div class="progress-bar bg-danger" style="width: 25%">
+							Obese (30+)
+						</div>
 					</div>
 				</div>
-			</div>
-		{% endif %}
+			{% endif %}
 		</div>
 	</div>
 </div>
