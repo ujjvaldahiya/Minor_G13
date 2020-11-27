@@ -18,7 +18,7 @@
 </head>
 <body>
     <header class="site-header">
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background-color: #563d7c;">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background-color: #2C2C32;">
         <div class="container">
           <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Exerprise
             <img src="/media/nav_pics/exerprise.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
@@ -37,7 +37,7 @@
             <div class="navbar-nav">
               {% if user.is_authenticated %}
                 <div class="dropdown">
-                  <button type="button" class="btn dropdown-toggle btn-outline-warning" data-toggle="dropdown" style="color: #ffe484">
+                  <button type="button" class="btn dropdown-toggle btn-primary" data-toggle="dropdown">
                     {{ user.username }}
                   </button>
                   <div class="dropdown-menu">
