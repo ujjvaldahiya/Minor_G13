@@ -48,6 +48,7 @@ urlpatterns = [
          name='password_reset_complete'),
     path('change-password/',user_views.change_password, name="change_password"),
     path('', include('blog.urls')),
+    path('home/', include('home.urls')),
     path('bmi/', include('bmi.urls')),
     path('recipes/', include('recipes.urls')),
     path('exercises/', include('exercises.urls')),

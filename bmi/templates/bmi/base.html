@@ -30,40 +30,41 @@
 
 </head>
 <body>
-    <header class="site-header">
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background-color: #2C2C32;">
-        <div class="container">
-          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Exerprise
-            <img src="/media/nav_pics/exerprise.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
-              <a class="nav-item nav-link" href="{% url 'bmi-home' %}">BMI</a>
-              <a class="nav-item nav-link" href="{% url 'exercises-home' %}">Exercises</a>
-              <a class="nav-item nav-link" href="{% url 'recipes-home' %}">Recipes</a>
-              <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
-            </div>
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-              {% if user.is_authenticated %}
-                <div class="dropdown">
-                  <button type="button" class="btn dropdown-toggle btn-primary" data-toggle="dropdown">
-                    {{ user.username }}
-                  </button>
-                  <div class="dropdown-menu"> 
-                    <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
-                    <a class="dropdown-item" href="{%url 'change_password'%}">Change Password</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                  </div>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background-color: black; opacity: 0.9;">
+      <div class="container">
+        <a class="navbar-brand mr-4" href="{% url 'home' %}">Exerprise
+          <img src="/media/nav_pics/exerprise.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="{% url 'blog-home' %}">Blog</a>
+            <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+            <a class="nav-item nav-link" href="{% url 'bmi-home' %}">BMI</a>
+            <a class="nav-item nav-link" href="{% url 'exercises-home' %}">Exercises</a>
+            <a class="nav-item nav-link" href="{% url 'recipes-home' %}">Recipes</a>
+            <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+          </div>
+          <!-- Navbar Right Side -->
+          <div class="navbar-nav">
+            {% if user.is_authenticated %}
+              <div class="dropdown">
+                <button type="button" class="btn dropdown-toggle btn-primary" data-toggle="dropdown">
+                  {{ user.username }}
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                  <a class="dropdown-item" href="{%url 'change_password'%}">Change Password</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                 </div>
-              {% else %}
-                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
-              {% endif %}
+              </div>
+            {% else %}
+              <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+              <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+            {% endif %}
             </div>
           </div>
         </div>

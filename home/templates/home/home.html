@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Exerprise</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}">
+		<link rel="shortcut icon" href="{% static 'images/favicon.png' type='image/x-icon' %}">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo" style="font-size: large;"><a href="{% url 'home' %}">Exerprise</a></div>
+				{% if user.is_authenticated %}
+					<a style="font-size: large;" href="{% url 'profile' %}">{{user.username}}</a>
+				{% else %}
+					<a style="font-size: large;" href="{% url 'login' %}">Login</a>
+					<a style="font-size: large;" href="{% url 'register' %}">Register</a>
+				{% endif %}
+			</header>
+
+		<!-- Banner -->
+			<section class="banner full">
+				<article>
+					<img src="/media/home_pics/1.jpg" alt="" />
+					<div class="inner">
+						<header>
+							<p>The only place where success comes before work is in the dictionary</p>
+							<h2>Exerprise</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="/media/home_pics/834255.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Choose the perfect workout</p>
+							<h2>Exercises</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="/media/home_pics/how.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Find your favourite recipes</p>
+							<h2>Recipes</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="/media/home_pics/3.jpg" alt="" />
+					<div class="inner">
+						<header>
+							<p>Share your fitness journey</p>
+							<h2>Blog</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="/media/home_pics/2.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Track your BMI</p>
+							<h2>BMI Calculator</h2>
+						</header>
+					</div>
+				</article>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style2">
+				<div class="inner">
+					<div class="grid-style">
+						<div>
+							<div class="box" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+								<div class="image fit">
+									<img src="/media/home_pics/834255.jpg" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>Choose the perfect workout</p>
+										<h2>Exercises</h2>
+									</header>
+									<p>About</p>
+									<footer class="align-center">
+										<a href="{% url 'exercises-home' %}" class="button alt">Exercises</a>
+									</footer>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<div class="box" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+								<div class="image fit">
+									<img src="/media/home_pics/how.jpg" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>Find your favourite recipes</p>
+										<h2>Recipes</h2>
+									</header>
+									<p>About</p>
+									<footer class="align-center">
+										<a href="{% url 'recipes-home' %}" class="button alt">Recipes</a>
+									</footer>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<div class="box" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+								<div class="image fit">
+									<img src="/media/home_pics/3.jpg" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>Share your fitness journey</p>
+										<h2>Blog</h2>
+									</header>
+									<p>About</p>
+									<footer class="align-center">
+										<a href="{% url 'blog-home' %}" class="button alt">Blog</a>
+									</footer>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<div class="box" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+								<div class="image fit">
+									<img src="/media/home_pics/2.jpg" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>Track your BMI</p>
+										<h2>BMI Calculator</h2>
+									</header>
+									<p> About</p>
+									<footer class="align-center">
+										<a href="{% url 'bmi-home' %}" class="button alt">BMI Calculator</a>
+									</footer>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+		<!-- Scripts -->
+			<script type="text/javascript" src="{% static 'home/jquery.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'home/jquery.scrollex.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'home/skel.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'home/util.js' %}"></script>
+			<script type="text/javascript" src="{% static 'home/main.js' %}"></script>
+
+	</body>
+</html>
