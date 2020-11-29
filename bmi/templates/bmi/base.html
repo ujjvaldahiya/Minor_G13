@@ -31,7 +31,7 @@
 </head>
 <body>
   <header class="site-header">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background-color: black; opacity: 0.9;">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background-color: #252423;">
       <div class="container">
         <a class="navbar-brand mr-4" href="{% url 'home' %}">Exerprise
           <img src="/media/nav_pics/exerprise.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
@@ -40,8 +40,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="{% url 'blog-home' %}">Blog</a>
-            <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Blog
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'blog-home' %}">Blog Posts</a>
+                <a class="dropdown-item" href="{% url 'post-create' %}">New Post</a>
+              </div>
+            </li>
             <a class="nav-item nav-link" href="{% url 'bmi-home' %}">BMI</a>
             <a class="nav-item nav-link" href="{% url 'exercises-home' %}">Exercises</a>
             <a class="nav-item nav-link" href="{% url 'recipes-home' %}">Recipes</a>
@@ -50,26 +57,26 @@
           <!-- Navbar Right Side -->
           <div class="navbar-nav">
             {% if user.is_authenticated %}
-              <div class="dropdown">
-                <button type="button" class="btn dropdown-toggle btn-primary" data-toggle="dropdown">
-                  {{ user.username }}
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
-                  <a class="dropdown-item" href="{%url 'change_password'%}">Change Password</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                </div>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ user.username }}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                <a class="dropdown-item" href="{%url 'change_password'%}">Change Password</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
               </div>
+            </li>
             {% else %}
               <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
               <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
             {% endif %}
-            </div>
           </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
     <main role="main" class="container">
       <div class="row">
         {%if user.is_authenticated%}
@@ -98,6 +105,12 @@
 
       {{script|safe}}
 
+    <!-- Footer -->
+		<footer id="footer">
+			<div class="copyright">
+				&copy; G13
+			</div>
+		</footer>
     <!--Custom Script-->
     <script type="text/javascript" src="{% static 'bmi/custom.js' %}"></script>
     <!-- Optional JavaScript -->
@@ -110,8 +123,3 @@
 
 </body>
 </html>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('[data-toggle="popover"]').popover();
-});
-</script>
