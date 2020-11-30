@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Nov 27 01:51:26 2020
-
-@author: Jagseer Singh
-"""
-
 import pandas as pd
 import numpy as np
 from fuzzywuzzy import process

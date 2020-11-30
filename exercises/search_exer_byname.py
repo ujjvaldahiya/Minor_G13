@@ -16,7 +16,7 @@ def search_exer_byname(s):
     closest=process.extractOne(s,exercises_name)
     result=[]
     if closest[1]<75:
-        return result
+        return result, None
     for i in range(len(table_values)):
         if(table_values[i][1]==closest[0]):
             dic={}
