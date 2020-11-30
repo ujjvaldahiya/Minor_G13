@@ -1,5 +1,11 @@
 {% extends "bmi/base.html" %}
 {% block content %}
+<img src="/media/home_pics/howcrop.jpg" class="rounded" alt="Responsive image" style="object-fit: none;
+																					object-position: center;
+																					width: 100%;
+																					max-height: 200px;
+																					margin-bottom: 1rem;
+																					box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 <!-- Nav tabs -->
   <div class="p-4 bg-white rounded shadow mb-5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
     <!-- Rounded tabs -->
@@ -52,14 +58,14 @@
 					<h1 class="my-3">RESULTS</h1>
 					</div>
 			</div>
-			    {%for exercises in results%}
+			    {%for recipes in results%}
 					<article class="media content-section">
 					    <div class="media-body"> 
 					    	<div class="article-metadata">
-					        	<h2>{{ exercises.Exercise_Name }}</h2>
+					        	<h2>{{ recipes.Name }}</h2>
 					        </div>
 					        <div class="article-metadata">
-					        	<p class="my-3"><b>Body Parts -</b> {{ exercises.Body_Part }}<span class="tab"></span><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
+					        	<p class="my-3"><b>Time -</b> {{ recipes.Time }} minutes<span class="tab"></span><b>Servings -</b> {{ recipes.Yield }}</p>
 						        <p class="my-3"></p>
 					        </div>
 					        <div class="row">
@@ -67,7 +73,7 @@
 						    		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
 						    	</div>
 						        <div class="col-md-6">
-						        	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ exercises.Procedure }}</p>
+						        	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ recipes.Procedure }}</p>
 						        </div>
 					        </div>
 					    </div>
@@ -79,14 +85,14 @@
 					<h1 class="my-3">RESULTS</h1>
 					</div>
 			    </div>
-				{%for exercises in results%}
+				{%for recipes in results%}
 				<article class="media content-section">
 				    <div class="media-body"> 
 				    	<div class="article-metadata">
-				        	<h2>{{ exercises.Exercise_Name }}</h2>
+				        	<h2>{{ recipes.Name }}</h2>
 				        </div>
 				        <div class="article-metadata">
-					       	<p class="my-3"><b>Body Parts -</b> {{ exercises.Body_Part }}<span class="tab"></span><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
+					       	<p class="my-3"><b>Time -</b> {{ recipes.Time }} minutes<span class="tab"></span><b>Servings -</b> {{ recipes.Yield }}</p>
 					        <p class="my-3"></p>
 				        </div>
 				        <div class="row">
@@ -94,7 +100,7 @@
 					    		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
 					    	</div>
 						    <div class="col-md-6">
-					        	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ exercises.Procedure }}</p>
+					        	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ recipes.Procedure }}</p>
 					        </div>
 				        </div>
 				    </div>
@@ -105,25 +111,25 @@
 					<h1 class="my-3">OUR RECOMMENDATIONS</h1>
 					</div>
 				</div>
-				{%for exercises in recommendations%}
+				{%for recipes in recommendations%}
 				<article class="media content-section">
 				    <div class="media-body"> 
 				    	<div class="article-metadata">
-				        	<h2>{{ exercises.Exercise_Name }}</h2>
+				        	<h2>{{ recipes.Name }}</h2>
 				        </div>
 				        <div class="article-metadata">
-				        	<p class="my-3"><b>Body Parts -</b> {{ exercises.Body_Part }}<span class="tab"></span><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
+					       	<p class="my-3"><b>Time -</b> {{ recipes.Time }} minutes<span class="tab"></span><b>Servings -</b> {{ recipes.Yield }}</p>
 					        <p class="my-3"></p>
 				        </div>
-					    <div class="row">
-						   	<div class="col-md-6">
-						   		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
-						   	</div>
+				        <div class="row">
+					    	<div class="col-md-6">
+					    		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
+					    	</div>
 						    <div class="col-md-6">
-						       	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ exercises.Procedure }}</p>
+					        	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ recipes.Procedure }}</p>
 					        </div>
 				        </div>
-					</div>
+				    </div>
 				</article>
 			{%endfor%}
 			{% endif %}
@@ -324,7 +330,6 @@
       </div>
     </div>
 	<!-- End rounded tabs -->
-	<br><br><br><br>
 </div>
 
 {% endblock content %}

@@ -1,5 +1,11 @@
 {% extends "blog/base.html" %}
 {% block content %}
+<img src="/media/home_pics/1crop.jpg" class="rounded" alt="Responsive image" style="object-fit: none;
+																					object-position: center;
+																					width: 100%;
+																					max-height: 200px;
+																					margin-bottom: 1rem;
+																					box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
     <h1 class="mb-3">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
     {% for post in posts %}
         <article class="media content-section">

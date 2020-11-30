@@ -1,5 +1,11 @@
 {%extends "blog/base.html"%}
 {%block content%}
+<img src="/media/home_pics/1crop.jpg" class="rounded" alt="Responsive image" style="object-fit: none;
+																					object-position: center;
+																					width: 100%;
+																					max-height: 200px;
+																					margin-bottom: 1rem;
+																					box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
     {%for post in posts%}
     <article class="media content-section rounded" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <img class="rounded-circle article-img" src="{{post.author.profile.image.url}}">
@@ -9,7 +15,7 @@
           <small class="text-muted">{{ post.date_posted }}</small>
         </div>
         <h2><a class="article-title" href="{%url 'post-detail' post.id%}">{{ post.title }}</a></h2>
-         <img class="rounded" src="{{ post.image.url }}" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto; vertical-align: middle;">
+         <img class="rounded" src="{{ post.image.url }}" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
         <p class="article-content">{{ post.content }}</p>
         <div class="border-top">
           <small class="text-muted">{{ post.likes.count }} likes</small>

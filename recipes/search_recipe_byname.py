@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from fuzzywuzzy import process
-from RecommendationSystemRecipe import find_recommendations
+#from RecommendationSystemRecipe import find_recommendations
 
 def search_recipe_byname(s):
     df= pd.read_excel('datasheet_recipe.xlsx')
@@ -20,12 +20,10 @@ def search_recipe_byname(s):
             if(table_values[i][1]==closest[j][0]):
                 dic={}
                 dic['ID']=table_values[i][0]
-                dic['Recipe Name']=table_values[i][1]
+                dic['Name']=table_values[i][1]
                 dic['Ingridients']=table_values[i][3]
                 dic['Procedure']=table_values[i][4]
                 dic['Time']=table_values[i][5]
                 dic['Yield']=table_values[i][6]
                 result.append(dic)
-    return result
-    
-print(search_recipe_byname("lemon"))
+    return result, None

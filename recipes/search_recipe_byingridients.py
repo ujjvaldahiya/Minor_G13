@@ -42,6 +42,7 @@ def search_recipe(s):
                     total_available+=1
         if(total_available>2 or (total_available>0 and total_req/total_available <3)):
             dic={}
+            print("hello")
             dic['ID']=dt[i][0]
             dic['Name']=dt[i][1]
             dic['Ingridients']=dt[i][3]
@@ -49,7 +50,6 @@ def search_recipe(s):
             dic['Time']=dt[i][5]
             dic['Yield']=dt[i][6]
             result.append(dic)
+    return result
 
-    return result          
-        
-print(search_recipe("apple"))
+#search_recipe("sugar,flour,butter,egg")

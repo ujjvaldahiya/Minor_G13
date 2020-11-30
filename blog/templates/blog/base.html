@@ -66,11 +66,7 @@
     </header>
     <main role="main" class="container">
       <div class="row">
-        {%if user.is_authenticated%}
-            <div class="col-md-8">
-        {%else%}
-            <div class="col">
-        {%endif%}
+          <div class="col">
           {% if messages %}
             {% for message in messages %}
               <div class="alert alert-{{ message.tags }} alert-dismissable">
@@ -81,23 +77,6 @@
           {% endif %}
           {% block content %}{% endblock %}
         </div>
-          <div class="col-md-4">
-            <div class="p-4 bg-white rounded shadow mb-5" style="position: fixed; padding-left: 35px; padding-right: 35px; padding-top: 15px; padding-bottom: 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-              <h3>Health Tips</h3>
-              <p class='text-muted'>Benefits of Exercise & Healthy Eating:
-                <ul class="list-group">
-                  <li class="list-group-item list-group-item-light">1. Weight loss</li>
-                  <li class="list-group-item list-group-item-light">2. A healthier heart</li>
-                  <li class="list-group-item list-group-item-light">3. Better cholesterol</li>
-                  <li class="list-group-item list-group-item-light">4. Resist the effects of aging</li>
-                  <li class="list-group-item list-group-item-light">5. A stronger immune system</li>
-                  <li class="list-group-item list-group-item-light">6. Better mood</li>
-                  <li class="list-group-item list-group-item-light">7. Less stress</li>
-                  <li class="list-group-item list-group-item-light">8.  Improved sleep</li>
-                </ul>
-              </p>
-            </div>
-          </div>
       </div>
     </main>
     <!-- Footer -->
