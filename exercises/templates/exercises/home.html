@@ -78,18 +78,14 @@
 					<article class="media content-section">
 					    <div class="media-body"> 
 					    	<div class="article-metadata">
-					        	<h2>{{ exercises.Exercise_Name }}</h2>
-					        </div>
-					        <div class="article-metadata">
-					        	<p class="my-3"><b>Body Parts -</b> {{ exercises.Body_Part }}<span class="tab"></span><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
-						        <p class="my-3"></p>
+					        	<h2><a class="article-title" href="{% url 'exercises-detail' exercises.ID %}">{{ exercises.Exercise_Name }}</a></h2>
 					        </div>
 					        <div class="row">
 						    	<div class="col-md-6">
 						    		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
 						    	</div>
 						        <div class="col-md-6">
-						        	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ exercises.Procedure }}</p>
+						        	<p class="my-3" style="font-size: 24px;"><br><b>Body Parts -</b> {{ exercises.Body_Part }}<br><br><b>Difficulty -</b> {{ exercises.Difficulty }}<br><br><b>Equipments - </b>{{ exercises.Equipments }}</p>
 						        </div>
 					        </div>
 					    </div>

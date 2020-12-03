@@ -70,7 +70,9 @@
 					        </div>
 					        <div class="row">
 						    	<div class="col-md-6">
-						    		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
+									<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
+									<hr>
+									<p><b>Ingredients - </b>{{recipes.Ingredients}}</p>
 						    	</div>
 						        <div class="col-md-6">
 						        	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ recipes.Procedure }}</p>
@@ -87,23 +89,25 @@
 			    </div>
 				{%for recipes in results%}
 				<article class="media content-section">
-				    <div class="media-body"> 
-				    	<div class="article-metadata">
-				        	<h2>{{ recipes.Name }}</h2>
-				        </div>
-				        <div class="article-metadata">
-					       	<p class="my-3"><b>Time -</b> {{ recipes.Time }} minutes<span class="tab"></span><b>Servings -</b> {{ recipes.Yield }}</p>
-					        <p class="my-3"></p>
-				        </div>
-				        <div class="row">
-					    	<div class="col-md-6">
-					    		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
-					    	</div>
-						    <div class="col-md-6">
-					        	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ recipes.Procedure }}</p>
-					        </div>
-				        </div>
-				    </div>
+					<div class="media-body"> 
+						<div class="article-metadata">
+							<h2>{{ recipes.Name }}</h2>
+						</div>
+						<div class="article-metadata">
+							<p class="my-3"><b>Time -</b> {{ recipes.Time }} minutes<span class="tab"></span><b>Servings -</b> {{ recipes.Yield }}</p>
+							<p class="my-3"></p>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
+								<hr>
+								<p><b>Ingredients - </b>{{recipes.Ingredients}}</p>
+							</div>
+							<div class="col-md-6">
+								<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ recipes.Procedure }}</p>
+							</div>
+						</div>
+					</div>
 				</article>
 				{%endfor%}
 				<div class="media content-section">
@@ -113,23 +117,25 @@
 				</div>
 				{%for recipes in recommendations%}
 				<article class="media content-section">
-				    <div class="media-body"> 
-				    	<div class="article-metadata">
-				        	<h2>{{ recipes.Name }}</h2>
-				        </div>
-				        <div class="article-metadata">
-					       	<p class="my-3"><b>Time -</b> {{ recipes.Time }} minutes<span class="tab"></span><b>Servings -</b> {{ recipes.Yield }}</p>
-					        <p class="my-3"></p>
-				        </div>
-				        <div class="row">
-					    	<div class="col-md-6">
-					    		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
-					    	</div>
-						    <div class="col-md-6">
-					        	<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ recipes.Procedure }}</p>
-					        </div>
-				        </div>
-				    </div>
+					<div class="media-body"> 
+						<div class="article-metadata">
+							<h2>{{ recipes.Name }}</h2>
+						</div>
+						<div class="article-metadata">
+							<p class="my-3"><b>Time -</b> {{ recipes.Time }} minutes<span class="tab"></span><b>Servings -</b> {{ recipes.Yield }}</p>
+							<p class="my-3"></p>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
+								<hr>
+								<p><b>Ingredients - </b>{{recipes.Ingredients}}</p>
+							</div>
+							<div class="col-md-6">
+								<p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ recipes.Procedure }}</p>
+							</div>
+						</div>
+					</div>
 				</article>
 			{%endfor%}
 			{% endif %}

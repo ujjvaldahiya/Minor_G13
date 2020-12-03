@@ -21,7 +21,7 @@ def search_recipe_byname(s):
                 dic={}
                 dic['ID']=table_values[i][0]
                 dic['Name']=table_values[i][1]
-                dic['Ingridients']=table_values[i][3]
+                dic['Ingredients']=table_values[i][3]
                 dic['Procedure']=table_values[i][4]
                 dic['Time']=table_values[i][5]
                 dic['Yield']=table_values[i][6]

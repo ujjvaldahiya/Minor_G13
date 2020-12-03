@@ -7,14 +7,11 @@ def home(request):
 	context = {}
 	if request.method=='POST':
 		recipes_ingredients = request.POST.get("recipes-ingredients")
-		print(recipes_ingredients)
 		recipes_name = request.POST.get("recipes-name")
-		print(recipes_name)
 		if recipes_ingredients:
 			results =ingredients(recipes_ingredients)
 			context['results'] = results
 			context['case'] = 1
-			print(results)
 
 		if recipes_name:
 			results,recommendations = name(recipes_name)

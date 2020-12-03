@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .RecommendationSystemExercise import find_recommendations
 from .search_exer import search_exer as searchexer
 from .search_exer_byname import search_exer_byname as searchexerbyname
+from .models import Exercise
+from django.views.generic import DetailView
 
 # Create your views here.
 def home(request):
@@ -34,3 +36,17 @@ def home(request):
 			context['case'] = 2
  
 	return render(request, 'exercises/home.html', context)
+
+class ExerciseDetailView(DetailView):
+	model = Exercise
+	template_name = "exercise_detail.html"
+
+	def get(self, request, key):
+		name = get_object_or_404(Exercise, pk = key)
+		context = {}
+		exercise_name = name.name
+		results,recommendations = searchexerbyname(exercise_name)
+		context['results'] = results
+		context['recommendations'] = recommendations
+		print(context)
+		return render(request, 'exercises/exercise_detail.html', context)

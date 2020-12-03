@@ -16,8 +16,6 @@ def search_recipe(s):
             ing[j]=ing[j].strip()
             ingridients_set.add(ing[j])
         major_ingridients.append(ing)
-    #print(ingridients_set)
-    #print(major_ingridients)
     available=s.split(',')
     for i in range(len(available)):
         available[i]=available[i].strip()
@@ -45,11 +43,9 @@ def search_recipe(s):
             print("hello")
             dic['ID']=dt[i][0]
             dic['Name']=dt[i][1]
-            dic['Ingridients']=dt[i][3]
+            dic['Ingredients']=dt[i][3]
             dic['Procedure']=dt[i][4]
             dic['Time']=dt[i][5]
             dic['Yield']=dt[i][6]
             result.append(dic)
     return result
-
-#search_recipe("sugar,flour,butter,egg")
