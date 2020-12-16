@@ -1,26 +1,24 @@
 {%extends "bmi/base.html"%}
 {%block content%}
-    {%for exercises in results%}
     <article class="media content-section" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <div class="media-body"> 
             <div class="article-metadata">
-                <h2>{{ exercises.Exercise_Name }}</h2>
+                <h2>{{ result.name }}</h2>
             </div>
             <div class="article-metadata">
-                <p class="my-3"><b>Body Parts -</b> {{ exercises.Body_Part }}<span class="tab"></span><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
+                <p class="my-3"><b>Body Parts -</b> {{ result.body_part }}<span class="tab"></span><b>Difficulty -</b> {{ result.difficulty }}</p>
                 <p class="my-3"></p>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
+                    <img class="rounded my-4" src="/media/exercise_pics/{{result.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
                 </div>
                 <div class="col-md-6">
-                    <p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ exercises.Procedure }}</p>
+                    <p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ result.procedure }}</p>
                 </div>
             </div>
         </div>
     </article>
-    {%endfor%}
     <div class="media content-section" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <div class="media-body">
         <h1 class="my-3">OUR RECOMMENDATIONS</h1>

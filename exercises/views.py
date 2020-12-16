@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404, render
-from .RecommendationSystemExercise import find_recommendations
 from .search_exer import search_exer as searchexer
 from .search_exer_byname import search_exer_byname as searchexerbyname
-from .models import Exercise
+from .RecommendationSystemExercise import find_recommendations
+from .workout_plans import find_plan
+from .models import Exercise,ExerciseHistory
 from django.views.generic import DetailView
 
 # Create your views here.
@@ -34,6 +35,9 @@ def home(request):
 			context['results'] = results
 			context['recommendations'] = recommendations
 			context['case'] = 2
+		
+	context['plans'] = find_plan()
+	print(context['plans'])
  
 	return render(request, 'exercises/home.html', context)
 
@@ -42,11 +46,21 @@ class ExerciseDetailView(DetailView):
 	template_name = "exercise_detail.html"
 
 	def get(self, request, key):
-		name = get_object_or_404(Exercise, pk = key)
+		exercise = get_object_or_404(Exercise, pk = key)
+		ExerciseHistory.objects.create(user = request.user, exercise_id = exercise.ID)
+		history_obj = ExerciseHistory.objects.filter(user_id = request.user.id).order_by('-id')
+		
+		history = []
+		for i in history_obj:
+			history.append(str(i.exercise_id))
+		if len(history)>=4:
+			history = history[:4]
+		else:
+			history = history
+		history.append(str(exercise.ID))
+
 		context = {}
-		exercise_name = name.name
-		results,recommendations = searchexerbyname(exercise_name)
-		context['results'] = results
-		context['recommendations'] = recommendations
-		print(context)
+		context['result'] = exercise
+		context['recommendations'] = find_recommendations(history)
+
 		return render(request, 'exercises/exercise_detail.html', context)

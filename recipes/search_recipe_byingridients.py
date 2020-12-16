@@ -16,6 +16,7 @@ def search_recipe(s):
             ing[j]=ing[j].strip()
             ingridients_set.add(ing[j])
         major_ingridients.append(ing)
+        
     available=s.split(',')
     for i in range(len(available)):
         available[i]=available[i].strip()
@@ -27,8 +28,6 @@ def search_recipe(s):
             available[i]=''
         else:
             available[i]=highest[0]
-    print(available)
-
         
     result=[]
     for i in range(len(major_ingridients)):
@@ -38,14 +37,14 @@ def search_recipe(s):
             for k in available:
                 if j==k:
                     total_available+=1
-        if(total_available>2 or (total_available>0 and total_req/total_available <3)):
+        if(total_available>2 or (total_available>0 and total_req/total_available <=2.5)):
             dic={}
-            print("hello")
             dic['ID']=dt[i][0]
             dic['Name']=dt[i][1]
-            dic['Ingredients']=dt[i][3]
-            dic['Procedure']=dt[i][4]
-            dic['Time']=dt[i][5]
-            dic['Yield']=dt[i][6]
+            dic['Ingredients']=dt[i][4]
+            dic['Procedure']=dt[i][5]
+            dic['Time']=dt[i][6]
+            dic['Yield']=dt[i][7]
             result.append(dic)
+
     return result

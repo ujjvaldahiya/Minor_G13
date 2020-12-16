@@ -1,0 +1,50 @@
+{% extends "bmi/base.html" %}
+{% block content %}
+    <article class="media content-section" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="media-body"> 
+            <div class="article-metadata">
+                <h2>{{ results.name }}</h2>
+            </div>
+            <div class="article-metadata">
+                <p class="my-3"><b>Time -</b> {{ results.time }} minutes<span class="tab"></span><b>Servings -</b> {{ results.servings }}</p>
+                <p class="my-3"></p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="rounded my-4" src="/media/recipe_pics/{{results.recipe_id}}.jpg" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
+                    <hr>
+                    <p><b>Ingredients - </b>{{results.ingredients}}</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="article-content my-3" style="text-align: justify;"><b>Procedure -</b> {{ results.procedure }}</p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="media content-section" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="media-body">
+        <h1 class="my-3">OUR RECOMMENDATIONS</h1>
+        </div>
+    </div>
+    {%for recipes in recommendations%}
+        <article class="media content-section" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <div class="media-body"> 
+                <div class="article-metadata">
+                    <h2><a class="article-title" href="{% url 'recipes-detail' recipes.ID %}">{{ recipes.recipe_name }}</a></h2>
+                </div>
+                <div class="article-metadata">
+                    <p class="my-3"><b>Time -</b> {{ recipes.time }} minutes<span class="tab"></span><b>Servings -</b> {{ recipes.servings }}</p>
+                    <p class="my-3"></p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="rounded my-4" src="/media/recipe_pics/{{recipes.ID}}.jpg" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
+                    </div>
+                    <div class="col-md-6">
+                        <p class="article-content my-3" style="text-align: justify;"><b>Ingredients - </b>{{recipes.ingredients}}</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    {%endfor%}
+{% endblock content %}

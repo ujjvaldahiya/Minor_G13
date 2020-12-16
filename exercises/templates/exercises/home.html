@@ -65,7 +65,7 @@
 					<input class="form-check-input" checked="checked" name="advanced" value="on" type="checkbox">
 					<label class="form-check-label">Advanced</label>
 				</div>
-				<button type="submit" class="btn btn-outline-primary my-3">Search</button>
+				<button type="submit" class="btn btn-outline-primary my-2">Search</button>
 			</form>
 		  </div>
 		  {% if case == 1 %}
@@ -85,7 +85,7 @@
 						    		<img class="rounded my-4" src="/media/exercise_pics/{{exercises.ID}}.gif" style="max-height: 100%; max-width: 87.5%; display: block; margin-left: auto; margin-right: auto;">
 						    	</div>
 						        <div class="col-md-6">
-						        	<p class="my-3" style="font-size: 24px;"><br><b>Body Parts -</b> {{ exercises.Body_Part }}<br><br><b>Difficulty -</b> {{ exercises.Difficulty }}<br><br><b>Equipments - </b>{{ exercises.Equipments }}</p>
+						        	<p class="my-3" style="font-size: larger;"><br><b>Body Parts -</b> {{ exercises.Body_Part }}<br><br><b>Difficulty -</b> {{ exercises.Difficulty }}<br><br><b>Equipments - </b>{{ exercises.Equipments }}</p>
 						        </div>
 					        </div>
 					    </div>
@@ -127,8 +127,8 @@
 				<article class="media content-section">
 				    <div class="media-body"> 
 				    	<div class="article-metadata">
-				        	<h2>{{ exercises.Exercise_Name }}</h2>
-				        </div>
+							<h2><a class="article-title" href="{% url 'exercises-detail' exercises.ID %}">{{ exercises.Exercise_Name }}</a></h2>
+						</div>
 				        <div class="article-metadata">
 				        	<p class="my-3"><b>Body Parts -</b> {{ exercises.Body_Part }}<span class="tab"></span><b>Difficulty -</b> {{ exercises.Difficulty }}</p>
 					        <p class="my-3"></p>
@@ -164,9 +164,84 @@
 
 		<!-- Tab panes -->
 		<div class="tab-content">
-		  <div class="tab-pane container active" id="sechome1"></div>
-		  <div class="tab-pane container fade" id="secmenu1"></div>
-		  <div class="tab-pane container fade" id="secmenu2"></div>
+		  <div class="tab-pane container active" id="sechome1">
+			{% for plan in plans %}
+				{% if plan.difficulty == 1 %}
+				<article class="media content-section">
+					<div class="media-body">
+					<div class="article-metadata">
+						<h1>{{ plan.name }}</h1>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-6">
+							<img class="rounded" src="/media/article_pics/compound.png" alt="" style="max-height: 100%; max-width: 100%;">
+						</div>
+						<div class="col-md-6">
+							<h5>Exercises</h5>
+							<hr>
+							{% for exercise in plan.exercises %}
+								<p><a class="article-title" href="{% url 'exercises-detail' exercise.id %}">{{ exercise.name }}</a></p>
+							{% endfor %}
+						</div>
+					</div>
+					</div>
+				</article>
+				{% endif %}	
+			{% endfor %}
+		  </div>
+		  <div class="tab-pane container fade" id="secmenu1">
+			{% for plan in plans %}
+				{% if plan.difficulty == 2 %}
+				<article class="media content-section">
+					<div class="media-body">
+					<div class="article-metadata">
+						<h1>{{ plan.name }}</h1>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-6">
+							<img class="rounded" src="/media/article_pics/compound.png" alt="" style="max-height: 100%; max-width: 100%;">
+						</div>
+						<div class="col-md-6">
+							<h5>Exercises</h5>
+							<hr>
+							{% for exercise in plan.exercises %}
+								<p><a class="article-title" href="{% url 'exercises-detail' exercise.id %}">{{ exercise.name }}</a></p>
+							{% endfor %}
+						</div>
+					</div>
+					</div>
+				</article>
+				{% endif %}	
+			{% endfor %}
+		  </div>
+		  <div class="tab-pane container fade" id="secmenu2">
+			{% for plan in plans %}
+				{% if plan.difficulty == 3 %}
+					<article class="media content-section">
+						<div class="media-body">
+						<div class="article-metadata">
+							<h1>{{ plan.name }}</h1>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-6">
+								<img class="rounded" src="/media/article_pics/compound.png" alt="" style="max-height: 100%; max-width: 100%;">
+							</div>
+							<div class="col-md-6">
+								<h5>Exercises</h5>
+								<hr>
+								{% for exercise in plan.exercises %}
+									<p><a class="article-title" href="{% url 'exercises-detail' exercise.id %}">{{ exercise.name }}</a></p>
+								{% endfor %}
+							</div>
+						</div>
+						</div>
+					</article>
+				{% endif %}	
+			{% endfor %}
+		  </div>
 		</div>
       </div>
       <div id="contact" role="tabpanel" aria-labelledby="contact-tab" class="tab-pane fade px-1 py-3">

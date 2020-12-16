@@ -1,7 +1,5 @@
 from django.db import models
-from django.utils import timezone
 from django.contrib.auth.models import User
-from django.urls import reverse
 
 # Create your models here.
 class Exercise(models.Model):
@@ -14,3 +12,8 @@ class Exercise(models.Model):
 
 	def __str__(self):
 		return self.name
+
+class ExerciseHistory(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	exercise_id = models.IntegerField()
+	date = models.DateField(auto_now_add=True)

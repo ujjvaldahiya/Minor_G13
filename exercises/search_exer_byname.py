@@ -30,5 +30,3 @@ def search_exer_byname(s):
     his=[]
     his.append(str(result[0]['ID']))
     return result,find_recommendations(his)
-    
-#print(search_exer_byname("jump"))
