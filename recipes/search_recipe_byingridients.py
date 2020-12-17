@@ -3,7 +3,7 @@ import numpy as np
 from fuzzywuzzy import process
 from fuzzywuzzy import fuzz
 
-def search_recipe(s):
+def search_recipe(available):
     df=pd.read_excel('datasheet_recipe.xlsx')
     df = df.replace(np.nan, '', regex=True)
     dt=df.values.tolist()
@@ -16,18 +16,6 @@ def search_recipe(s):
             ing[j]=ing[j].strip()
             ingridients_set.add(ing[j])
         major_ingridients.append(ing)
-        
-    available=s.split(',')
-    for i in range(len(available)):
-        available[i]=available[i].strip()
-    for i in range(len(available)):
-        if (available[i]==''):
-            continue
-        highest=process.extractOne(available[i],ingridients_set,scorer=fuzz.token_sort_ratio)
-        if(highest[1]<70):
-            available[i]=''
-        else:
-            available[i]=highest[0]
         
     result=[]
     for i in range(len(major_ingridients)):

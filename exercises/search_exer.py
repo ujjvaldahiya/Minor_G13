@@ -32,6 +32,7 @@ def search_exer(s,easy,medium,hard):
             dt[i][1][j]=dt[i][1][j].strip()
 
     search_list=[]
+    empty_equiplist = []
     for i in range(len(dt)):
         passing=True
         if(dt[i][2]==1 and easy==False):
@@ -47,11 +48,13 @@ def search_exer(s,easy,medium,hard):
                 if(dt[i][1][j].lower() == inputs[k].lower()):
                     failing=False
             if(dt[i][1][0]==""):
-                failing=False
+                failing=True
+                empty_equiplist.append(dt[i][0])
             if(failing==True):
                 passing=False
         if(passing==True):
             search_list.append(dt[i][0])
+    search_list.extend(empty_equiplist)
     result=[]
     df1=pd.read_excel('datasheet_exer.xlsx')
     for i in range(len(search_list)):

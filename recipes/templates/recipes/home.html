@@ -23,10 +23,10 @@
         <article class="media content-section my-3" style="border-radius: 5px;">
 		  	<ul class="nav nav-pills">
 			  <li class="nav-item">
-			    <a class="nav-link active" data-toggle="pill" href="#sechome">Search by Name</a>
+			    <a class="nav-link active" data-toggle="pill" href="#sechome">Search by Ingredients</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" data-toggle="pill" href="#secmenu">Search by Ingredients</a>
+			    <a class="nav-link" data-toggle="pill" href="#secmenu">Search by Name</a>
 			  </li>
 			</ul>
 		</article>
@@ -34,27 +34,44 @@
 		<!-- Tab panes -->
 		<div class="tab-content">
 		  <div class="tab-pane container active" id="sechome">
-			  <form method="post" enctype="multipart/form-data">
+			<form method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div>
+					<label for="">Enter Ingredients: </label>
+					<input type="text" name="recipes-ingredients" class="form-control" placeholder="Names should be comma seperated" >
+					<div class="form-check my-2">
+						<input class="form-check-input" checked="checked" name="check-img" value="on" type="checkbox">
+						<label class="form-check-label">Image Input</label>
+					</div>
+					<input class="my-3" type="file" name="myfiles" multiple>
+				</div>
+				<button type="submit" name="ing-submit" value="ing" class="btn btn-outline-primary my-3">Search</button>
+			</form>
+		  </div>
+		  <div class="tab-pane container fade" id="secmenu">
+			<form method="post" enctype="multipart/form-data">
 				{% csrf_token %}
 				<div class="my-3">
 					<label for="">Enter Name: </label>
 					<input type="text" name="recipes-name" class="form-control" required placeholder="" >
 				</div>
-				<button type="submit" class="btn btn-outline-primary my-3" action="#">Search</button>
+				<button type="submit" name="name-submit" class="btn btn-outline-primary my-3" action="#">Search</button>
 			  </form>
 		  </div>
-		  <div class="tab-pane container fade" id="secmenu">
-		  	<form method="post" enctype="multipart/form-data">
-				{% csrf_token %}
-				<div>
-					<label for="">Enter Ingredients: </label>
-					<input type="text" name="recipes-ingredients" class="form-control" required placeholder="Names should be comma seperated" >
-					<input class="my-3" type="file" name="myfiles" multiple>
-				</div>
-				<button type="submit" class="btn btn-outline-primary my-3">Search</button>
-			</form>
-		  </div>
 		  {% if case == 1 %}
+			<article class="media content-section">
+				<div class="media-body">
+					<div class="article-metadata">
+						<h1>Ingredients</h1>
+					</div>
+					<div>
+						{% for ing in available %}
+							<p>{{ ing }}</p>
+						{% endfor %}
+					</div>
+				</div>
+			</article>
+
 			<div class="media content-section">
 				<div class="media-body">
 					<h1 class="my-3">RESULTS</h1>
